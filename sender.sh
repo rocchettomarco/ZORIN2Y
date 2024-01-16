@@ -1,4 +1,7 @@
 #!/bin/bash
+pid=$$
+echo "pr:"$pid
+trap 'pkill -P $pid; exit' INT
 
 cdef='\e[0m' #color default
 cred='\e[0;31m' #color red
@@ -6,9 +9,11 @@ cgreen='\e[0;32m' #color green
 usr=$(whoami)
 chatlog='chat.log'
 ip=$(hostname -I | cut -d " " -f 1)
-echo $ip
 brd=$(ip a | grep $ip | cut -d " " -f 8)
-echo $brd
+
+export CHATPIPE="4532ggfT"
+echo $usr > $CHATPIPE
+./alive.sh &
 
 echo "WELCOME TO LAST CHAT!"
 
@@ -31,6 +36,7 @@ do
 		oldusr=$usr
 		echo -ne "${cred}new username: $cdef"
 		read usr
+		echo $usr > $CHATPIPE
 		echo "[$(date +%r)] new username: $oldusr -> $usr" | nc -q 0 -buN $brd 4444
 	fi
 
@@ -44,7 +50,7 @@ do
 	if [[ $i == "debug" ]]
 	then
 		i=0
-		while [[ True ]]
+		while [[ true ]]
 		do
 			mex="deb"$i
 			echo -ne "${cgreen}message: $cdef $mex\n"
