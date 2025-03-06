@@ -2,7 +2,7 @@
 As this is a course on Bash scripting for [n00bies](https://www.urbandictionary.com/define.php?term=n00bies) we will implement
 a chat to explore the key concepts of Bash. 
 
-As a gamefied course, we'll hopefully have fun. If you are already an exper, you can skim through this README and then read the game rules at the bottom of this README.
+As a gamefied course, we'll hopefully have fun. If you are already an expert, you can skim through this README and then read the game rules at the bottom of this README.
 
 I read the [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html) to
 create this course. You can simply read it and learn it yourself from a much better 
